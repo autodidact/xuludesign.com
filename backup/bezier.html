@@ -1,0 +1,33 @@
+<html>
+<head>
+<script src="js/bezier.js"></script> 
+<style>
+#canvas {
+    background-color:#ccc;
+    width:100%;
+}
+</style>
+</head>
+<body>
+<canvas id="canvas" width="400" height="200"></canvas>
+<script>
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+
+    var num_points = 20;
+    var points = Array();
+    for (var i = 0; i < num_points; i++) {
+        points.push({x: i*20, y:100+100*Math.random()})
+    }
+    console.log(points);
+    
+    ctx.beginPath();
+    ctx.moveTo(points[0].x, points[0].y)
+    for (var i = 1; i < num_points; i++) {
+        ctx.lineTo(points[i].x, points[i].y)
+    }
+    ctx.stroke();
+
+</script>
+</body>
+</html>
